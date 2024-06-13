@@ -1,8 +1,11 @@
 const axios = require("axios");
+require("dotenv").config();
+
+console.log(process.env.SECRET_KEY)
 
 const createToken = async (req, res, next) => {
-  const secret = "tfdd48kWAT9VxXYxMqgEm6RO5t6QS3ADig7ElhWNkdJqubWfpN2cGPUR7WgqPSGR";
-  const consumer = "PeeMWT6jTZeLGpaSowQWN8Wy36GPArp6nV37jqfSwSE14h1v";
+  const secret = process.env.SECRET_KEY;
+  const consumer = process.env.CONSUMER_KEY;
   const auth = new Buffer.from(`${consumer}:${secret}`).toString("base64");
   await axios
     .get(
