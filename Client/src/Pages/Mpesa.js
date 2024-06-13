@@ -26,7 +26,7 @@ handleAmount = (f) => {
     payHandler = (event) => {
         event.preventDefault();
         const { amount, phone } = this.state
-        Axios.post("http://localhost:8000/token", {
+        Axios.post("https://mpesa-app-8.onrender.com/token", {
           amount,
           phone,
         })
